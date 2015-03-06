@@ -27,5 +27,4 @@ setInterval(function () {
     if(hours === 1) { $("#hoursPlural").css("display", "none"); };
     if(minutes === 1) { $("#minutesPlural").css("display", "none"); };
     if(seconds === 1) { $("#secondsPlural").css("display", "none"); };
-
 }, 1000);

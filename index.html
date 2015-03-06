@@ -38,6 +38,14 @@
             
             <hr></hr>
             
+            <div id="register">
+                <button type="button" class="btn btn-primary btn-lg" id="btn-reg" data-toggle="modal" data-target="#myModal">
+                    REGISTER NOW
+                </button>
+            </div>
+            
+            <hr></hr>
+            
             <div class="row">
                 <div class="col-xl-4 xol-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="subtitle">
@@ -49,7 +57,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates beatae temp
                 </div>
                 <div class="col-xl-4 xol-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="subtitle">
-                        15 TEAMS
+                        20 TEAMS
                     </div>
                     <div class="panel panel-default">
 Reiciendis sequi sunt id tenetur in accusantium error praesentium, natus, aut molestias, nam nemo. Officiis nostrum quaerat id fuga quos esse architecto. Ut et ullam, sit illum quam ratione esse.
@@ -64,35 +72,95 @@ Excepturi laboriosam quam perspiciatis, quis atque nemo enim numquam adipisci la
                     </div>
                 </div>
             </div>
-            
-            <hr></hr>
-            
+                        
+            <!--
             <form id="input-form" action="" method="POST" target="no-target">
-                <input id="input-name" placeholder="enter name" name="entry.448718218">
+                <input id="input-name" placeholder="Name" name="entry.448718218">
+                <input id="input-email" placeholder="Email" name="entry.1117649756">
+                <input id="input-phone" placeholder="Phone" name="entry.2065473022">
+                <input id="input-tm1" placeholder="Team Member (1)" name="entry.1740044628">
+                <input id="input-tm2" placeholder="Team Member (2)" name="entry.1578468951">
+                <input id="input-tm3" placeholder="Team Member (3)" name="entry.761163052">
+                <input id="input-tm4" placeholder="Team Member (4)" name="entry.1132157167">
                 <button id="form-submit" type="submit">SUBMIT</button>
             </form>
-
-            <iframe src="#" id="no-target" name="no-target" style="visibility:hidden"></iframe>
-            
+            -->
+                        
             <hr></hr>
+            
+            <footer>
+                <p class="lead">Having trouble? Email: <span id="admin">sbulkley@zagmail.gonzaga.edu</span></p>
+            </footer>
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Innovention 2015 Registration</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="input-form" action="" method="POST" target="no-target">
+                                <div class="form-group">
+                                    <label for="inputName">Name</label>
+                                    <input type="text" class="form-control required" id="inputName" placeholder="Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail">Email</label>
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPhone">Contact Number</label>
+                                    <input type="tel" class="form-control" id="inputPhone" placeholder="Phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputTM1">Team Members</label>
+                                    <input type="text" class="form-control" id="inputTM1" placeholder="Team Member (1)">
+                                    <input type="text" class="form-control" id="inputTM2" placeholder="Team Member (2)">
+                                    <input type="text" class="form-control" id="inputTM3" placeholder="Team Member (3)">
+                                    <input type="text" class="form-control" id="inputTM4" placeholder="Team Member (4)">
+                                </div>
+                                <button type="submit" class="btn btn-default">Register</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <iframe src="#" id="no-target" name="no-target" style="visibility:hidden"></iframe>
             
         </div>
     </body>
-    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script>
-        $('#input-form').one('submit',function(){
-            var inputName = encodeURIComponent($('#input-name').val());
-            var baseURL = 'https://docs.google.com/forms/d/1S_NmrDyeeRf6mIJMGxOvik4Z38Y033T9GoHNJ4Z9YxY/formResponse?entry.448718218=';
+        $('#input-form').on('submit',function(){
+            var inputName = $('#inputName').val();
+            var inputEmail = $('#inputEmail').val();
+            var inputPhone = $('#inputPhone').val();
+            var inputTM1 = $('#inputTM1').val();
+            var inputTM2 = $('#inputTM2').val();
+            var inputTM3 = $('#inputTM3').val();
+            var inputTM4 = $('#inputTM4').val();
+            //var baseURL = 'https://docs.google.com/forms/d/18LD6ueL10_lLVAKpDgfmLpUBlzoRFEZSoMod57MXfH0/formResponse?entry.1000000=';
+            var baseURL = 'https://docs.google.com/forms/d/1S_NmrDyeeRf6mIJMGxOvik4Z38Y033T9GoHNJ4Z9YxY/formResponse?'
+                + "entry.448718218=" + inputName + "&"
+                + "entry.1117649756=" + inputEmail + "&"
+                + "entry.2065473022=" + inputPhone + "&"
+                + "entry.1740044628=" + inputTM1 + "&"
+                + "entry.1578468951=" + inputTM2 + "&"
+                + "entry.761163052=" + inputTM3 + "&"
+                + "entry.1132157167=" + inputTM4;
             var submitRef = '&submit=Submit';
-            var submitURL = (baseURL + inputName + submitRef);
+            var submitURL = (baseURL + submitRef);
             console.log(submitURL);
-            $(this)[0].action=submitURL;
-            $('#input-name').addClass('active').val('Thank You!');
+            $('#myModal').modal('toggle');
+            $(this)[0].action = submitURL;
         });
     </script>
-    <script src="js/countdown.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.0/plugins/CSSPlugin.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.0/easing/EasePack.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.0/TweenLite.min.js"></script>
+    <script src="js/CSSPlugin.min.js"></script>
+    <script src="js/EasePack.min.js"></script>
+    <script src="js/TweenLite.min.js"></script>
     <script src="js/animate.js"></script>
+    <script src="js/countdown.js"></script>
 </html>
