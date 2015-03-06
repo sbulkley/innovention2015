@@ -13,14 +13,20 @@
     
     .title {
         text-transform: uppercase;
-        letter-spacing: 0.2em;
+        letter-spacing: 0.08em;
         color: white;
         font-weight: 100;
         
-        font-size: 3em;
+        font-size: 2.5em;
+        
+        @media(min-width:480px) {
+            font-size: 3em;
+            letter-spacing: 0.005em;
+        }
         
         @media(min-width:768px) {
             font-size: 4em;
+            letter-spacing: 0.2em;
         }
     }
     
@@ -29,8 +35,13 @@
     }
     
     .icon-gear {
-        font-size: 8em;
+        font-size: 6em;
         color: rgb(118,113,113);
+        
+        @media(min-width:480px) {
+            font-size: 7em;
+            letter-spacing: 0.005em;
+        }
         
         @media(min-width:768px) {
             font-size: 10em;
@@ -55,12 +66,16 @@
 
 #date {
     text-align: center;
-    font-size: 3em;
+    font-size: 2.3em;
     font-weight: 200;
     letter-spacing: 0.1em;
     color: rgb(118,113,113);
     
     margin-bottom: 0.2em;
+    
+    @media(min-width:480px) {
+        font-size: 3em;
+    }
     
     @media(min-width:768px) {
         font-size: 4em;
@@ -69,8 +84,12 @@
 
 #countdown {
     text-align: center;
-    font-size: 1.3em;
+    font-size: 0.95em;
     font-weight: 100;
+    
+    @media(min-width:480px) {
+        font-size: 1.1em;
+    }
     
     @media(min-width:768px) {
         font-size: 2em;
