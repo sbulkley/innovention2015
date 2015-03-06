@@ -67,9 +67,29 @@ Excepturi laboriosam quam perspiciatis, quis atque nemo enim numquam adipisci la
             
             <hr></hr>
             
+            <form id="input-form" action="" method="POST" target="no-target">
+                <input id="input-name" placeholder="enter name" name="entry.448718218">
+                <button id="form-submit" type="submit">SUBMIT</button>
+            </form>
+
+            <iframe src="#" id="no-target" name="no-target" style="visibility:hidden"></iframe>
+            
+            <hr></hr>
+            
         </div>
     </body>
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script>
+        $('#input-form').one('submit',function(){
+            var inputName = encodeURIComponent($('#input-name').val());
+            var baseURL = 'https://docs.google.com/forms/d/1S_NmrDyeeRf6mIJMGxOvik4Z38Y033T9GoHNJ4Z9YxY/formResponse?entry.448718218=';
+            var submitRef = '&submit=Submit';
+            var submitURL = (baseURL + inputName + submitRef);
+            console.log(submitURL);
+            $(this)[0].action=submitURL;
+            $('#input-name').addClass('active').val('Thank You!');
+        });
+    </script>
     <script src="js/countdown.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.0/plugins/CSSPlugin.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.0/easing/EasePack.min.js"></script>
