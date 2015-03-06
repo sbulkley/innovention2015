@@ -23,8 +23,8 @@ setInterval(function () {
     el_minutes.html(minutes);
     el_seconds.html(seconds);
     
-    if(days === 1) { $("#daysPlural").css("display", "none"); };
-    if(hours === 1) { $("#hoursPlural").css("display", "none"); };
-    if(minutes === 1) { $("#minutesPlural").css("display", "none"); };
-    if(seconds === 1) { $("#secondsPlural").css("display", "none"); };
+    if(days === 1) { $("#daysPlural").css("opacity", 0) } else { $("#daysPlural").css("opacity", 1) };
+    if(hours === 1) { $("#hoursPlural").css("opacity", 0) } else { $("#hoursPlural").css("opacity", 1) };
+    if(minutes === 1) { $("#minutesPlural").css("opacity", 0) } else { $("#minutesPlural").css("opacity", 1) };
+    if(seconds === 1) { $("#secondsPlural").css("opacity", 0) } else { $("#secondsPlural").css("opacity", 1) };
 }, 1000);
